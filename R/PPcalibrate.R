@@ -41,7 +41,7 @@
 #' @return TO DO
 #' @export
 #'
-#' @examples TO DO
+#' @examples # TO DO
 PPcalibrate <- function(
     rc_determinations,
     rc_sigmas,
