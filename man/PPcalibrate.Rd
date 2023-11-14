@@ -14,12 +14,55 @@ PPcalibrate(
   use_F14C_space = TRUE,
   show_progress = TRUE,
   sensible_initialisation = TRUE,
+  s = NA,
+  h = NA,
   calendar_ages = NA
 )
 }
 \arguments{
-\item{calendar_ages}{}
+\item{rc_determinations}{A vector of observed radiocarbon determinations}
+
+\item{rc_sigmas}{A vector of the radiocarbon determinations
+uncertainties (1-sigma). Must be the same length as \code{rc_determinations}.}
+
+\item{calibration_curve}{A dataframe which must contain one column \code{calendar_age_BP}, and also
+columns \code{c14_age} and \code{c14_sig} or \code{f14c} and \code{f14c_sig} (or both sets).
+This format matches the curves supplied with this package}
+
+\item{F14C_inputs}{\code{TRUE} if the provided rc_determinations are F14C concentrations and \code{FALSE}
+if they are radiocarbon age BP. Defaults to \code{FALSE}.}
+
+\item{n_iter}{The number of MCMC iterations (optional). Default is 100,000.}
+
+\item{n_thin}{How much to thin the output (optional). 1 is no thinning,
+a larger number is more thinning. Default is 10. Must choose an integer more
+than 1 and not too close to \code{n_iter}, to ensure there are enought samples from
+posterior to potentially use.}
+
+\item{use_F14C_space}{Whether the calculations are carried out in F14C space (default is TRUE).
+If FALSE, calculations are carried out in 14C yr BP space.}
+
+\item{show_progress}{Whether to show a progress bar in the console during
+execution. Default is \code{TRUE}.}
+
+\item{sensible_initialisation}{Whether to use sensible start values and
+adaptive prior on \eqn{\mu_{\phi}} and  (A, B).
+If this is \code{TRUE} (the default), then all the remaining arguments below are
+ignored.}
+
+\item{s, h}{Parameters to define/specify the poisson process rate
+(jumps and heights)}
+
+\item{calendar_ages}{The initial estimate for the underlying calendar ages
+(optional). If supplied it must be a vector with the same length as
+\code{rc_determinations}.  Required if \code{sensible_initialisation} is \code{FALSE}.}
+}
+\value{
+TO DO
 }
 \description{
 Title
+}
+\examples{
+TO DO
 }
